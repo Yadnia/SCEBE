@@ -8,6 +8,7 @@ import org.Yaed.entity.*;
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
+import java.util.Objects;
 
 public class AgregarEstudiante extends JFrame {
 
@@ -26,12 +27,15 @@ public class AgregarEstudiante extends JFrame {
     private List<EstadoEstudiante> estados;
     private List<Beca> becas;
 
+
     public AgregarEstudiante() {
         setTitle("Formulario de Estudiante");
         setSize(750, 650);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setLayout(new GridBagLayout());
+        setLayout(new GridBagLayout());       // Poner icono
+        ImageIcon icono = new ImageIcon(Objects.requireNonNull(getClass().getResource("/logo.png")));
+        setIconImage(icono.getImage());
 
         getContentPane().setBackground(new Color(14, 34, 71));
         GridBagConstraints gbc = new GridBagConstraints();

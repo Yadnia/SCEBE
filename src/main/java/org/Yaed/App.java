@@ -17,14 +17,17 @@ import java.util.List;
 public class App {
     public static void main(String[] args) {
        new Inicio();
-        List<Usuario> usuarios = new ArrayList<Usuario>();
-        usuarios= UserController.getUsers();
-        if (usuarios.isEmpty()) {
-            TipoUsuario tipoUsuario = UserController.getTipoUsuarios().getFirst();
-            Usuario usuario = new Usuario("hola12@", "admin", "x", "1231", 20, "12345678", tipoUsuario);
-            UserController.saveUser(usuario);
-        }
-
-        Random rand = new Random();
+//
+//        List<Usuario> usuarios = new ArrayList<Usuario>();
+//        usuarios= UserController.getUsers();
+//        if (usuarios.isEmpty()) {
+//            TipoUsuario tipoUsuario = UserController.getTipoUsuarios().getFirst();
+//            Usuario usuario = new Usuario("hola12@", "admin", "x", "1231", 20, "12345678", tipoUsuario);
+//            UserController.saveUser(usuario);
+//        }
+//        Usuario deporte = new Usuario("deporte1", "deporte", "Deporte", "1234", 30, "12345678", UserController.getTipoUsuarios().get(2));
+//        UserController.saveUser(deporte);
+//
+//        Usuario becas = new Usuario("becas1", "becas", "Becas", "1234", 30, "12345678", UserController.getTipoUsuarios().get(1));
     }
 }

@@ -8,6 +8,7 @@ import org.Yaed.entity.*;
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
+import java.util.Objects;
 
 public class EditarEstudiante extends JFrame {
 
@@ -33,6 +34,9 @@ public class EditarEstudiante extends JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLayout(new GridBagLayout());
+        // Poner icono
+        ImageIcon icono = new ImageIcon(Objects.requireNonNull(getClass().getResource("/logo.png")));
+        setIconImage(icono.getImage());
 
         getContentPane().setBackground(new Color(14, 34, 71));
         GridBagConstraints gbc = new GridBagConstraints();

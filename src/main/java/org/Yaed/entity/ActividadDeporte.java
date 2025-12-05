@@ -18,6 +18,7 @@ public class ActividadDeporte {
     @JoinColumn(name = "tipo_id")
     private TipoActividadDeporte tipo;
 
+
     public ActividadDeporte() {
     }
 
@@ -25,7 +26,9 @@ public class ActividadDeporte {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.tipo = tipo;
+
     }
+
 
     public int getId() {
         return id;

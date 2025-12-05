@@ -1,5 +1,7 @@
 package org.Yaed.windows;
 
+import org.Yaed.controller.EstudiantesController;
+import org.Yaed.entity.Estudiante;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -8,6 +10,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Inicio extends JFrame {
@@ -19,19 +22,10 @@ public class Inicio extends JFrame {
         setSize(1000, 800);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
+        // Poner icono
+        ImageIcon icono = new ImageIcon(Objects.requireNonNull(getClass().getResource("/logo.png")));
+        setIconImage(icono.getImage());
 
-        //hibernate
-//        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-//        Session session = sessionFactory.openSession();
-//        Scanner scanner = new Scanner(System.in);
-//
-//        System.out.println("✅ ¡Hibernate se conectó con éxito!");
-//
-//        session.close();
-//        sessionFactory.close();
-
-
-        System.out.println("hola mundo");
         // Colores
         Color fondoPrincipal = new Color(15, 21, 59);
         Color fondoSecundario = new Color(20, 30, 80);

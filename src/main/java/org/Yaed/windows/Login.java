@@ -1,12 +1,16 @@
 package org.Yaed.windows;
 
 import org.Yaed.entity.Usuario;
+import org.Yaed.windows.becas.BecasInicio;
+import org.Yaed.windows.cultura.CulturaInicio;
+import org.Yaed.windows.deportes.DeportesInicio;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import java.util.Objects;
 
 import static org.Yaed.controller.UserController.getUsers;
 
@@ -17,6 +21,9 @@ public class Login extends JFrame {
         setSize(500, 450);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
+        // Poner icono
+        ImageIcon icono = new ImageIcon(Objects.requireNonNull(getClass().getResource("/logo.png")));
+        setIconImage(icono.getImage());
 
         // Panel principal
         JPanel mainPanel = new JPanel();
@@ -57,6 +64,8 @@ public class Login extends JFrame {
             }
         });
 
+
+
         formPanel.add(userLabel);
         formPanel.add(userField);
         formPanel.add(passLabel);
@@ -80,6 +89,12 @@ public class Login extends JFrame {
         loginButton.setFocusPainted(false);
         loginButton.setFont(new Font("SansSerif", Font.BOLD, 16));
         loginButton.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
+
+        userField.addActionListener(e -> passField.requestFocus());
+
+        passField.addActionListener(e ->{
+            loginButton.doClick();
+        });
         mainPanel.add(loginButton);
 
         // Acción al presionar "Iniciar"

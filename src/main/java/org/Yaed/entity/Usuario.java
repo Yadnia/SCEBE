@@ -28,7 +28,7 @@ public class Usuario {
     private String password ;
 
     @ManyToOne
-    @JoinColumn(name = "tipo-usuario")
+    @JoinColumn(name = "tipo_usuario")
     private TipoUsuario tipoUsuario;
 
     public Usuario() {

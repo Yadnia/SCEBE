@@ -3,17 +3,21 @@ package org.Yaed.entity;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "gruposdeportesestudiantes")
 public class GruposDeportesEstudiantes {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    // Referencia a Estudiante (carnet es la PK)
     @ManyToOne
-    @JoinColumn(name = "id_estudiante")
+    @JoinColumn(name = "id_estudiante", referencedColumnName = "carnet", nullable = false)
     private Estudiante estudiante;
 
+    // Referencia a GrupoDeporte
     @ManyToOne
-    @JoinColumn(name = "grupo_id")
+    @JoinColumn(name = "grupo_id", referencedColumnName = "id", nullable = false)
     private GrupoDeporte grupoDeporte;
 
     public GruposDeportesEstudiantes() {

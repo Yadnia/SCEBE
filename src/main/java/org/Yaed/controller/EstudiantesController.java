@@ -118,5 +118,54 @@ public class EstudiantesController {
         }
     }
 
+    //DEPORTES
+
+   public static List<Estudiante> getDeportesEstudiantes() {
+        List<Estudiante> estudiantesDeportes = new ArrayList<>();
+        IGenericService<Estudiante> estudianteService = new GenericServiceImpl<>(Estudiante.class, HibernateUtil.getSessionFactory());
+        for (Estudiante e : estudianteService.getAll()) {
+            if (e.getTipoEstudiante() != null &&
+                e.getTipoEstudiante().getIdTipoEstudiante() == 3) { // Suponiendo que el ID para estudiantes de deportes es 3
+                estudiantesDeportes.add(e);
+            }
+        }
+        return estudiantesDeportes;
+    }
+
+    public static Estudiante getEstudianteDeporteByCarnet(String carnet) {
+        IGenericService<Estudiante> estudianteService =
+                new GenericServiceImpl<>(Estudiante.class, HibernateUtil.getSessionFactory());
+                Estudiante estudiante = estudianteService.getById(carnet);
+
+        if (estudiante == null) {
+            throw new RuntimeException("No se encontró el estudiante con carnet: " + carnet);
+        }
+        return estudiante;
+    }
+
+    //CULTURA
+
+    public static Estudiante getEstudianteCulturaByCarnet(String carnet) {
+        IGenericService<Estudiante> estudianteService =
+                new GenericServiceImpl<>(Estudiante.class, HibernateUtil.getSessionFactory());
+        Estudiante estudiante = estudianteService.getById(carnet);
+
+        if (estudiante == null) {
+            throw new RuntimeException("No se encontró el estudiante con carnet: " + carnet);
+        }
+        return estudiante;
+    }
+
+    public static List<Estudiante> getCulturaEstudiantes() {
+        List<Estudiante> estudiantesDeportes = new ArrayList<>();
+        IGenericService<Estudiante> estudianteService = new GenericServiceImpl<>(Estudiante.class, HibernateUtil.getSessionFactory());
+        for (Estudiante e : estudianteService.getAll()) {
+            if (e.getTipoEstudiante() != null &&
+                    e.getTipoEstudiante().getIdTipoEstudiante() == 2) { // Suponiendo que el ID para estudiantes de deportes es 3
+                estudiantesDeportes.add(e);
+            }
+        }
+        return estudiantesDeportes;
+    }
 
 }

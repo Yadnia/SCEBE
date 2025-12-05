@@ -2,6 +2,8 @@ package org.Yaed.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class GrupoCultura {
     @Id
@@ -18,13 +20,17 @@ public class GrupoCultura {
     @JoinColumn(name = "id_categoria")
     private CategoriasCultura categoria;
 
+    @OneToMany(mappedBy = "grupoCultura")
+    private List<GruposCulturaEstudiantes> gruposCulturaEstudiantes;
+
     public GrupoCultura() {
     }
 
-    public GrupoCultura(String nombre, String descripcion, CategoriasCultura categoria) {
+    public GrupoCultura(String nombre, String descripcion, CategoriasCultura categoria, List<GruposCulturaEstudiantes> gruposCulturaEstudiantes) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.categoria = categoria;
+        this.gruposCulturaEstudiantes = gruposCulturaEstudiantes;
     }
 
     public int getId() {
@@ -59,6 +65,14 @@ public class GrupoCultura {
         this.categoria = categoria;
     }
 
+    public List<GruposCulturaEstudiantes> getGruposCulturaEstudiantes() {
+        return gruposCulturaEstudiantes;
+    }
+
+    public void setGruposCulturaEstudiantes(List<GruposCulturaEstudiantes> gruposCulturaEstudiantes) {
+        this.gruposCulturaEstudiantes = gruposCulturaEstudiantes;
+    }
+
     @Override
     public String toString() {
         return "GrupoCultura{" +
@@ -66,6 +80,7 @@ public class GrupoCultura {
                 ", nombre='" + nombre + '\'' +
                 ", descripcion='" + descripcion + '\'' +
                 ", categoria=" + categoria +
+                ", gruposCulturaEstudiantes" + gruposCulturaEstudiantes +
                 '}';
     }
 }
