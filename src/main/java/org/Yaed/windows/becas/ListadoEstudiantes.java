@@ -5,7 +5,9 @@ import org.Yaed.controller.EstudiantesController;
 import org.Yaed.controller.HabController;
 import org.Yaed.controller.PastController;
 import org.Yaed.entity.Estudiante;
+import org.Yaed.util.WindowManager;
 import org.Yaed.windows.AgregarEstudiante;
+import org.Yaed.windows.ConfiguracionVentana;
 import org.Yaed.windows.EditarEstudiante;
 
 import javax.swing.*;
@@ -243,7 +245,7 @@ public class ListadoEstudiantes extends JFrame {
             }
         });
         botonOpciones.addActionListener(e -> {
-            new HistorialVentana().setVisible(true);
+            WindowManager.abrir("Configuracion", new ConfiguracionVentana());
             dispose();
         });
         leftPanel.add(Box.createVerticalStrut(20));

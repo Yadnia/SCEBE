@@ -6,6 +6,8 @@ import org.Yaed.controller.HabController;
 import org.Yaed.controller.PastController;
 import org.Yaed.entity.Estudiante;
 import org.Yaed.entity.HabitacionesEstudiantes;
+import org.Yaed.util.WindowManager;
+import org.Yaed.windows.ConfiguracionVentana;
 import org.Yaed.windows.becas.cuartosF.*;
 import org.Yaed.windows.becas.cuartosM.*;
 
@@ -173,7 +175,8 @@ public class Habitaciones extends JFrame {
         rightPanel.add(panelDown, BorderLayout.CENTER);
 
         botonOpciones.addActionListener(e -> {
-            new HistorialVentana();
+            WindowManager.abrir("Configuracion", new ConfiguracionVentana());
+            WindowManager.abrir("Historiales", new HistorialVentana());
             dispose();
         });
 

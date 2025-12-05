@@ -168,4 +168,17 @@ public class EstudiantesController {
         return estudiantesDeportes;
     }
 
+    public static List<Estudiante> getEstudiantesInternos() {
+        List<Estudiante> estudiantes = new ArrayList<>();
+        IGenericService<Estudiante> estudianteService = new GenericServiceImpl<>(Estudiante.class, HibernateUtil.getSessionFactory());
+
+        for (Estudiante e : estudianteService.getAll()) {
+            if (e.getBecaid() != null && e.getBecaid().getId() == 2) {
+                estudiantes.add(e);
+            }
+        }
+
+        return estudiantes;
+    }
+
 }

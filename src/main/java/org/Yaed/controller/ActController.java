@@ -74,7 +74,7 @@ public static void AsignarActividades(){
         List <Estudiante> grupo1 = new ArrayList<>();
         List <Estudiante> grupo2 = new ArrayList<>();
         List <Estudiante> grupo3 = new ArrayList<>();
-        List<Estudiante> todos = filtrarEstudiantesNoAsignadosAActividades(EstudiantesController.getEstudiantes());
+        List<Estudiante> todos = filtrarEstudiantesNoAsignadosAActividades(EstudiantesController.getEstudiantesInternos());
 
         dividirActividades(todos, grupo1, grupo2, grupo3);
 

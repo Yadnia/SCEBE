@@ -4,6 +4,9 @@ import org.Yaed.controller.ActController;
 import org.Yaed.controller.HabController;
 import org.Yaed.controller.PastController;
 import org.Yaed.entity.ActividadesEstudiantesInternado;
+import org.Yaed.util.WindowManager;
+import org.Yaed.windows.AyudaVentana;
+import org.Yaed.windows.ConfiguracionVentana;
 import org.Yaed.windows.PerfilVentana;
 
 import javax.swing.*;
@@ -187,7 +190,7 @@ public class BecasInicio extends JFrame {
         leftPanel.add(Box.createVerticalStrut(20));
         leftPanel.add(botonOpciones);
         botonOpciones.addActionListener(e -> {
-            new HistorialVentana();
+            WindowManager.abrir("Configuracion", new ConfiguracionVentana());
             dispose();
         });
 
@@ -211,7 +214,7 @@ public class BecasInicio extends JFrame {
             }
         });
         botonAyuda.addActionListener(e -> {
-           new PerfilVentana().setVisible(true);
+          WindowManager.abrir("Ayuda", new AyudaVentana());
         });
 
         leftPanel.add(Box.createVerticalStrut(20));
